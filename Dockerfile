@@ -17,7 +17,9 @@ COPY client/ client/
 RUN npm run build --prefix client
 
 COPY socket/ socket/
-RUN npm start --prefix socket
+RUN npm run socket --prefix socket
+
+EXPOSE 8080
 
 COPY server/  server/
 
