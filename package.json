@@ -1,0 +1,21 @@
+{
+  "name": "chat-application",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "npm install --prefix server",
+    "install-client": "npm install --prefix client",
+    "install-socket": "npm install --prefix socket",
+    "install": "npm run install-server && npm run install-client && npm run install-socket",
+    "server": "npm run watch --prefix server",
+    "client": "npm start --prefix client",
+    "socket": "npm run socket --prefix socket",
+    "watch": "npm run server & npm run client & npm run socket",
+    "deploy": "npm run build --prefix client && npm start --prefix server && npm start --prefix socket",
+    "deploy-cluster": "npm run build --prefix client && npm run cluster --prefix server",
+    "test": "npm test --prefix server && npm test --prefix client"
+  },
+  "author": "",
+  "license": "ISC"
+}
