@@ -17,14 +17,13 @@ COPY client/ client/
 RUN npm run build --prefix client
 
 COPY socket/ socket/
-RUN npm run socket --prefix socket
-
-EXPOSE 8080
 
 COPY server/  server/
 
 USER node
 
-CMD [ "npm", "start", "--prefix", "server" ]
+CMD [ "npm", "start", "--prefix", "server" && "socket" ]
 
 EXPOSE 5000
+EXPOSE 8080
+
