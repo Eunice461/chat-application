@@ -58,13 +58,10 @@ module.exports.getFriends = async (req, res) => {
           //res.status(200).json({success:true, friends : friendGet})
           return res.status(200).json({success:true, friends : fnd_msg})
 
-     }catch (error) {
-          return res.status(500).json({
-               error: {
-                    errorMessage :'Internal Sever Error'
-               }
-          })
-     }
+     }catch (err) {
+          console.log(err);
+          return res.status(500).json({ error: "Server Error" + err });
+        }
 } 
 
 module.exports.messageUploadDB = async (req, res) =>{
@@ -96,12 +93,9 @@ module.exports.messageUploadDB = async (req, res) =>{
              message: insertMessage
         })
 
-   }catch (error){
-     return res.status(500).json({
-             error: {
-                  errorMessage : 'Internal Sever Error'
-             }
-        })
+   }catch (err) {
+     console.log(err);
+     return res.status(500).json({ error: "Server Error" + err });
    }
 
 } 
@@ -143,14 +137,10 @@ module.exports.messageGet = async(req,res) => {
               message: getAllMessage
          })
 
-    }catch (error){
-         return res.status(500).json({
-              error: {
-                   errorMessage : 'Internal Server error'
-              }
-         })
-
-    }
+    }catch (err) {
+     console.log(err);
+     return res.status(500).json({ error: "Server Error" + err });
+   }
 
 } 
 
@@ -198,13 +188,10 @@ module.exports.ImageMessageSend = (req,res) => {
                 }
            } )
 
-      }catch (error){
-          return res.status(500).json({
-                error : {
-                     errorMessage: 'Internal Sever Error'
-                }
-           })
-}
+      }catch (err) {
+          console.log(err);
+          return res.status(500).json({ error: "Server Error" + err });
+        }
     })
 }
 

@@ -105,14 +105,10 @@ return res.status(201).cookie('authToken',token, options).json({
                   })
              }
 
-        } catch (error) {
-          return res.status(500).json({
-                  error: {
-                       errorMessage : ['Interanl Server Error']
-                  }
-             })
-
-          }
+        } catch (err) {
+          console.log(err);
+          return res.status(500).json({ error: "Server Error" + err });
+        }
 
         }
 
