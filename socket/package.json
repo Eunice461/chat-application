@@ -2,10 +2,10 @@
   "name": "socket",
   "version": "1.0.0",
   "description": "",
-  "main": "socket.js",
+  "main": "src/socket.js",
   "scripts": {
-    "socket": "nodemon socket.js",
-    "start": "node socket.js"
+    "socket": "nodemon src/socket.js",
+    "start": "node src/socket.js"
   },
   "keywords": [],
   "author": "",

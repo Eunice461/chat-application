@@ -106,9 +106,13 @@ return res.status(201).cookie('authToken',token, options).json({
              }
 
         } catch (err) {
-          console.log(err);
-          return res.status(500).json({ error: "Server Error" + err });
-        }
+          return res.status(500).json({
+                  error: {
+                       errorMessage : 'Internal Sever Error' + err
+                  }
+             })
+
+          }
 
         }
 
@@ -178,9 +182,13 @@ module.exports.userLogin = async (req,res) => {
                
 
          } catch (err) {
-          console.log(err);
-          return res.status(500).json({ error: "Server Error" + err });
-        }
+          return res.status(500).json({
+                  error: {
+                       errorMessage : 'Internal Sever Error' + err
+                  }
+             })
+
+          }
     }
 
 }

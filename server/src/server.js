@@ -8,7 +8,7 @@ const app = require('./app')
 const { mongoConnect } = require('./config/database')
 
 
-const PORT =process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 const server = http.createServer(app)
 

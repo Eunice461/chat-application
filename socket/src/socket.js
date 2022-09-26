@@ -1,4 +1,6 @@
-const io = require('socket.io')(8080,{
+const PORT = process.env.PORT || 8080;
+
+const io = require('socket.io')(PORT,{
      cors : {
           origin : '*',
           methods : ['GET','POST']
@@ -48,13 +50,13 @@ io.on('connection',(socket)=>{
           }    
      })
 
-     // socket.on('sendFriends', (data) => {
-     //      const user = findFriend(data.reseverId);
+     socket.on('sendFriends', (data) => {
+          const user = findFriend(data.reseverId);
      
-     //      if(user !== undefined) {
-     //           socket.to(user.socketId).emit('getFriends', data)
-     //      }  
-     // })
+          if(user !== undefined) {
+               socket.to(user.socketId).emit('getFriends', data)
+          }  
+     })
 
      socket.on('messageSeen',msg =>{
           const user = findFriend(msg.senderId);          
