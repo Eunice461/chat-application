@@ -16,12 +16,17 @@ app.use(cookieParser());
 app.use('/api/messenger',authRouter);
 app.use('/api/messenger',messengerRoute);
 
-
-
-
-app.get('/', (req, res)=>{
-    res.send('This is from backend Sever');
-})
+app.use(cors({
+    origin: 'http://localhost:3000',
+  }));
+  app.use(morgan('combined'));
+  
+  app.use(express.json());
+  app.use(express.static(path.join(__dirname, '..', 'public')));
+  
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
+  });
 
 
 
