@@ -22,7 +22,7 @@ COPY socket/ socket/
 
 USER node
 
-CMD [ "npm", "start", "--prefix", "socket" & "npm", "start", "--prefix", "server"]
+CMD [ "npm", "start", "--prefix", "socket" & "npm", "start", "--prefix", "server" ]
 
 
 EXPOSE 5000
