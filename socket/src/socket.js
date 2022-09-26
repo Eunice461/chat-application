@@ -50,13 +50,13 @@ io.on('connection',(socket)=>{
           }    
      })
 
-     socket.on('sendFriends', (data) => {
-          const user = findFriend(data.reseverId);
+     // socket.on('sendFriends', (data) => {
+     //      const user = findFriend(data.reseverId);
      
-          if(user !== undefined) {
-               socket.to(user.socketId).emit('getFriends', data)
-          }  
-     })
+     //      if(user !== undefined) {
+     //           socket.to(user.socketId).emit('getFriends', data)
+     //      }  
+     // })
 
      socket.on('messageSeen',msg =>{
           const user = findFriend(msg.senderId);          
