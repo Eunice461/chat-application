@@ -33,7 +33,7 @@ const Messenger = () => {
  const [typingMessage, setTypingMessage] = useState('');
 
  useEffect(() => {
-    socket.current = io('ws://localhost:8080');
+    socket.current = io('ws:https://chat-app-docker-demo.herokuapp.com:8080');
     socket.current.on('getMessage',(data) => {
         setSocketMessage(data);
     })
