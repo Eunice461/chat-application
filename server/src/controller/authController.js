@@ -181,14 +181,10 @@ module.exports.userLogin = async (req,res) => {
               }
                
 
-         } catch{
-          return res.status(500).json({
-                   error: {
-                        errorMessage : ['Internal Sever Error']
-                   }
-              })
-
-         }
+         } catch (err) {
+          console.log(err);
+          return res.status(500).json({ error: "Server Error" + err });
+        }
     }
 
 }
